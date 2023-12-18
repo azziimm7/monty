@@ -8,7 +8,7 @@
  * @stack: stack
  */
 
-void free(stack_t **stack)
+void free_stck(stack_t **stack)
 {
 	while (state.stack_size > 0)
 		top_pop(stack);

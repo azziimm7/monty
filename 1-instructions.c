@@ -84,12 +84,12 @@ void bottom_pop(stack_t **stack)
 }
 
 /**
- * exec_push - ecectue push
+ * execute_push - ecectue push
  * @stack: pointer
  * @line_number: line number of instruction
  */
 
-void exec_push(stack_t **stack, unsigned int line_number)
+void execute_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_stack_entry = malloc(sizeof(stack_t));
 	int operand;
@@ -139,12 +139,12 @@ void exec_push(stack_t **stack, unsigned int line_number)
 	state.stack_size++;
 }
 /**
- * exec_pall - excute pall
+ * execute_pall - excute pall
  * @stack: stack
  * @line_number: line number of instruction
  */
 
-void exec_pall(stack_t **stack,
+void execute_pall(stack_t **stack,
 		unsigned int line_number __attribute__((unused)))
 {
 	stack_t *current = *stack;

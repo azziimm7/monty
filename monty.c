@@ -52,8 +52,8 @@ int main(int argc, char **argv)
 			line_length--;
 		}
 		rem_coms(buffer);
-		state.args = split_string(buffer);
-		state.arg_count = get_word_count(buffer);
+		state.args = split_str(buffer);
+		state.arg_count = word_count(buffer);
 
 		if (state.arg_count > 0)
 			exec(&stack_ptr, line_number);
@@ -64,7 +64,7 @@ int main(int argc, char **argv)
 
 		free_str_arr(state.args);
 	}
-	free(&stack_ptr);
+	free_stck(&stack_ptr);
 	fclose(input_file);
 
 	return (0);
