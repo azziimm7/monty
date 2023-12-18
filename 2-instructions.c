@@ -127,7 +127,7 @@ void execute_pchr(stack_t **stack, unsigned int line_number)
 
 	first = (*stack)->n;
 
-	if (!is_printable_ascii_char(first))
+	if (!printable_ascii(first))
 	{
 		state.status = EXIT_FAILURE;
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);

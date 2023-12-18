@@ -53,7 +53,7 @@ int word_count(char *str)
  * Return: poinet to array containing splits
  */
 
-char **split_str(char **str)
+char **split_str(char *str)
 {
 	int len = strlen(str);
 	int start = -1;

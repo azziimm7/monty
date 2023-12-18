@@ -56,7 +56,7 @@ int main(int argc, char **argv)
 		state.arg_count = word_count(buffer);
 
 		if (state.arg_count > 0)
-			exec(&stack_ptr, line_number);
+			execute(&stack_ptr, line_number);
 
 		if (state.status == EXIT_FAILURE)
 			return (EXIT_FAILURE);

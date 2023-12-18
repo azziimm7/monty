@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -68,14 +69,16 @@ void execute_push(stack_t **stack, unsigned int line_number);
 void execute_pall(stack_t **stack, unsigned int line_number);
 void execute_pint(stack_t **stack, unsigned int line_number);
 void execute_pop(stack_t **stack, unsigned int line_number);
-void execute_swap(stack_t **stack, unsigned int line_number);
-void execute_add(stack_t **stack, unsigned int line_number);
+void execute_swp(stack_t **stack, unsigned int line_number);
+void execute_nop(stack_t **stack, unsigned int line_number);
 void execute_add(stack_t **stack, unsigned int line_number);
 void execute_div(stack_t **stack, unsigned int line_number);
+void execute_sub(stack_t **stack, unsigned int line_number);
+void execute_mul(stack_t **stack, unsigned int line_number);
 void execute_mod(stack_t **stack, unsigned int line_number);
-void execute_pchar(stack_t **stack, unsigned int line_number);
+void execute_pchr(stack_t **stack, unsigned int line_number);
 void execute_pstr(stack_t **stack, unsigned int line_number);
-void exec_rotl(stack_t **stack, unsigned int line_number);
+void execute_rotl(stack_t **stack, unsigned int line_number);
 void execute_rotr(stack_t **stack, unsigned int line_number);
 void execute_stack(stack_t **stack, unsigned int line_number);
 void execute_queue(stack_t **stack, unsigned int line_number);
@@ -83,7 +86,7 @@ void free_stck(stack_t **stack);
 
 /* string utilities */
 int word_count(char *str);
-char **split_str(char **str);
+char **split_str(char *str);
 char *substring(char *src, int start, int end);
 void free_str_arr(char **str_arr);
 bool valid_int(char *str);

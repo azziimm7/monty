@@ -4,7 +4,7 @@
 
 
 /**
- * free - removes all items
+ * free_stck - removes all items
  * @stack: stack
  */
 

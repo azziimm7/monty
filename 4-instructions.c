@@ -8,12 +8,12 @@
  */
 
 
-void execute_pstr((stack_t **stack,
+void execute_pstr(stack_t **stack,
 			unsigned int line_number __attribute__((unused)))
 {
 	stack_t *stack_top = *stack;
 
-	while (stack_top && stack_top->n && is_printable_ascii_char(stack_top->n))
+	while (stack_top && stack_top->n && printable_ascii(stack_top->n))
 	{
 		printf("%c", (char)stack_top->n);
 		stack_top = stack_top->prev;

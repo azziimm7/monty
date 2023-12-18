@@ -11,24 +11,24 @@
 
 void execute(stack_t **stack, unsigned int line_number)
 {
-	intruction_t instructions[] = {
-		{"push", &exec_push},
-		{"pop", &exec_pop},
-		{"swap", &exec_swap},
-		{"add", &exec_add},
-		{"nop", &exec_nop},
-		{"pall", &exec_pall},
-		{"pint", &exec_pint},
-		{"pchar", &exec_pchar},
-		{"pstr", &exec_pstr},
-		{"rotl", &exec_rotl},
-		{"rotr", &exec_rotr},
-		{"stack", &exec_stack},
-		{"queue", &exec_queue};
-		{"sub", &exec_sub},
-		{"div", &exec_div},
-		{"mul", &exec_mul},
-		{"mod", &exec_mod}
+	instruction_t instructions[] = {
+		{"push", &execute_push},
+		{"pop", &execute_pop},
+		{"swap", &execute_swp},
+		{"add", &execute_add},
+		{"nop", &execute_nop},
+		{"pall", &execute_pall},
+		{"pint", &execute_pint},
+		{"pchar", &execute_pchr},
+		{"pstr", &execute_pstr},
+		{"rotl", &execute_rotl},
+		{"rotr", &execute_rotr},
+		{"stack", &execute_stack},
+		{"queue", &execute_queue},
+		{"sub", &execute_sub},
+		{"div", &execute_div},
+		{"mul", &execute_mul},
+		{"mod", &execute_mod}
 	};
 	unsigned long int i;
 	unsigned long count = sizeof(instructions)
@@ -37,7 +37,7 @@ void execute(stack_t **stack, unsigned int line_number)
 	{
 		if (!strcmp(state.args[0], instructions[i].opcode))
 		{
-			instructions[i].f(Stack, line_number);
+			instructions[i].f(stack, line_number);
 			return;
 		}
 	}
@@ -53,7 +53,7 @@ void execute(stack_t **stack, unsigned int line_number)
 
 void top_pop(stack_t **stack)
 {
-	satck_T current = *stack;
+	stack_t *current = *stack;
 	*stack = (*stack)->prev;
 
 	if (*stack)
@@ -80,7 +80,7 @@ void bottom_pop(stack_t **stack)
 	else
 		*stack = NULL;
 	state.stack_size--;
-	return (current);
+	free(current);
 }
 
 /**
@@ -101,7 +101,7 @@ void execute_push(stack_t **stack, unsigned int line_number)
 		return;
 	}
 
-	if (state.arg_count < 2 || !is_valid_integer(state.args[1]))
+	if (state.arg_count < 2 || !valid_int(state.args[1]))
 	{
 		state.status = EXIT_FAILURE;
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
